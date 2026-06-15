@@ -29,7 +29,6 @@ export default async function ForPlannersPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'forPlanners' });
-  const tn = await getTranslations({ locale, namespace: 'nav' });
   const provide = t.raw('provide') as string[];
   const emailHref = `mailto:${site.plannerEmail}?subject=${encodeURIComponent('Paperly — planner enquiry')}`;
 

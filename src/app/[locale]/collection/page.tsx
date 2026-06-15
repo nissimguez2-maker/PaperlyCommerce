@@ -35,6 +35,7 @@ export default async function CollectionPage({
   setRequestLocale(locale);
   const tc = await getTranslations({ locale, namespace: 'collection' });
   const tn = await getTranslations({ locale, namespace: 'nav' });
+  const tcm = await getTranslations({ locale, namespace: 'common' });
 
   return (
     <>
@@ -55,17 +56,23 @@ export default async function CollectionPage({
       </section>
 
       {collections.map((collection) => {
-        const items = getProductsByCollection(collection.id);
         return (
           <section key={collection.id} className="section pb-0" id={collection.slug}>
             <div className="container-page">
               <div className="mb-8 flex flex-wrap items-end justify-between gap-4 border-t border-hairline pt-10">
                 <div className="max-w-text">
-                  <h2 className="text-h2-sm md:text-h2">{t(collection.name, locale)}</h2>
+                  <h2 className="text-h2-sm md:text-h2">
+                    <Link
+                      href={`/collection/${collection.slug}`}
+                      className="transition-colors hover:text-ink-60"
+                    >
+                      {t(collection.name, locale)}
+                    </Link>
+                  </h2>
                   <p className="mt-2 text-ink-60">{t(collection.tagline, locale)}</p>
                 </div>
                 <Link href={`/collection/${collection.slug}`} className="link-quiet">
-                  {tn('collection')}
+                  {tcm('viewAll')}
                   <Arrow />
                 </Link>
               </div>
