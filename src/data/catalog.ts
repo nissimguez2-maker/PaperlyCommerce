@@ -64,9 +64,10 @@ export const products: Product[] = [
     slug: 'the-full-universe',
     collection: 'complete-sets',
     name: { en: 'The Full Universe', he: 'היקום המלא' },
+    seoTitle: { en: 'The Full Universe — Complete Event Set', he: 'היקום המלא — סט אירוע שלם' },
     tagline: {
-      en: 'A complete printed world for your evening.',
-      he: 'עולם שלם ומודפס לערב שלך.',
+      en: 'A complete world for your evening.',
+      he: 'עולם שלם לערב שלך.',
     },
     description: {
       en: 'The studio’s most complete set. One hundred menus, one hundred place cards and a full signage suite, art-directed end to end so every surface of the evening speaks the same language.',
@@ -101,8 +102,8 @@ export const products: Product[] = [
     ],
     images: [],
     imageAlt: {
-      en: 'The Full Universe — a complete suite of wedding menus, place cards and signage designed by Paperly',
-      he: 'היקום המלא — סוויטה שלמה של תפריטים, כרטיסי מקום ושילוט לחתונה בעיצוב Paperly',
+      en: 'The Full Universe — a complete suite of event menus, place cards and signage designed by Paperly',
+      he: 'היקום המלא — סוויטה שלמה של תפריטים, כרטיסי מקום ושילוט לאירוע בעיצוב Paperly',
     },
     crossSell: ['the-setting', 'menu'],
     premiumAnchor: true,
@@ -112,6 +113,7 @@ export const products: Product[] = [
     slug: 'the-setting',
     collection: 'complete-sets',
     name: { en: 'The Setting', he: 'הסידור' },
+    seoTitle: { en: 'The Setting — Complete Table Set', he: 'הסידור — סט שולחן שלם' },
     tagline: {
       en: 'From the entrance to the table, one language.',
       he: 'מהכניסה ועד השולחן, שפה אחת.',
@@ -149,8 +151,8 @@ export const products: Product[] = [
     ],
     images: [],
     imageAlt: {
-      en: 'The Setting — wedding menus, place cards and a welcome sign designed by Paperly',
-      he: 'הסידור — תפריטים, כרטיסי מקום ושלט קבלת פנים לחתונה בעיצוב Paperly',
+      en: 'The Setting — event menus, place cards and a welcome sign designed by Paperly',
+      he: 'הסידור — תפריטים, כרטיסי מקום ושלט קבלת פנים לאירוע בעיצוב Paperly',
     },
     crossSell: ['the-full-universe', 'the-table'],
     favourite: false,
@@ -159,6 +161,7 @@ export const products: Product[] = [
     slug: 'the-table',
     collection: 'complete-sets',
     name: { en: 'The Table', he: 'השולחן' },
+    seoTitle: { en: 'The Table — Menu & Place Card Set', he: 'השולחן — סט תפריטים וכרטיסי מקום' },
     tagline: {
       en: 'Menus and place cards, one coherent set.',
       he: 'תפריטים וכרטיסי מקום, סט אחד קוהרנטי.',
@@ -196,8 +199,8 @@ export const products: Product[] = [
     ],
     images: [],
     imageAlt: {
-      en: 'The Table — a coordinated set of wedding menus and place cards designed by Paperly',
-      he: 'השולחן — סט מתואם של תפריטים וכרטיסי מקום לחתונה בעיצוב Paperly',
+      en: 'The Table — a coordinated set of event menus and place cards designed by Paperly',
+      he: 'השולחן — סט מתואם של תפריטים וכרטיסי מקום לאירוע בעיצוב Paperly',
     },
     crossSell: ['the-setting', 'place-card'],
     favourite: false,
@@ -208,6 +211,7 @@ export const products: Product[] = [
     slug: 'menu',
     collection: 'pieces',
     name: { en: 'Menu', he: 'תפריט' },
+    seoTitle: { en: 'Event Menu Cards', he: 'תפריטי אירוע' },
     tagline: {
       en: 'The piece every guest holds.',
       he: 'הפריט שכל אורח מחזיק.',
@@ -252,8 +256,8 @@ export const products: Product[] = [
     ],
     images: [],
     imageAlt: {
-      en: 'Editorial wedding menu designed by Paperly on premium stock',
-      he: 'תפריט חתונה אדיטוריאלי בעיצוב Paperly על נייר איכותי',
+      en: 'Editorial event menu cards designed by Paperly on premium stock',
+      he: 'תפריטי אירוע אדיטוריאליים בעיצוב Paperly על נייר איכותי',
     },
     crossSell: ['place-card', 'the-table'],
     favourite: true,
@@ -262,6 +266,7 @@ export const products: Product[] = [
     slug: 'place-card',
     collection: 'pieces',
     name: { en: 'Place Card', he: 'כרטיס מקום' },
+    seoTitle: { en: 'Event Place Cards', he: 'כרטיסי מקום לאירוע' },
     tagline: {
       en: 'A name, placed with intention.',
       he: 'שם, ממוקם בכוונה.',
@@ -314,8 +319,8 @@ export const products: Product[] = [
     ],
     images: [],
     imageAlt: {
-      en: 'Round and folded wedding place cards designed by Paperly',
-      he: 'כרטיסי מקום עגולים ומקופלים לחתונה בעיצוב Paperly',
+      en: 'Round and folded event place cards designed by Paperly',
+      he: 'כרטיסי מקום עגולים ומקופלים לאירוע בעיצוב Paperly',
     },
     crossSell: ['menu', 'the-table'],
     favourite: false,

@@ -1,8 +1,8 @@
 {
   "nav": {
-    "primary": "Primary",
+    "primary": "Studio navigation",
     "collection": "The Collection",
-    "portfolio": "Portfolio",
+    "portfolio": "Bespoke",
     "studio": "The Studio",
     "howItWorks": "How It Works",
     "contact": "Contact",
@@ -16,11 +16,11 @@
     "addToCart": "Add to cart",
     "added": "Added",
     "viewAll": "View all",
-    "viewProduct": "View piece",
-    "learnMore": "Learn more",
-    "explore": "Explore",
-    "begin": "Begin your universe",
-    "startProject": "Start your project"
+    "from": "From",
+    "chooseOptions": "Choose options",
+    "decreaseQty": "Decrease quantity",
+    "increaseQty": "Increase quantity",
+    "begin": "Begin your universe"
   },
   "home": {
     "hero": {
@@ -36,8 +36,8 @@
       "bespoke": {
         "label": "Bespoke",
         "title": "Bespoke Universes",
-        "body": "Full artistic direction. We create a complete world for your event — palette, materials, typography and every printed piece, held together by one point of view.",
-        "cta": "Explore the portfolio"
+        "body": "Full artistic direction. We create a complete world for your event — palette, materials, typography and every piece, held together by one point of view.",
+        "cta": "Explore Bespoke"
       },
       "collection": {
         "label": "Shop",
@@ -49,7 +49,8 @@
     "authority": {
       "eyebrow": "One eye, start to finish",
       "body": "Every Paperly event begins with one person's eye. Sacha — Artistic Director, trained in interior architecture — designs a complete visual universe for your event, then we produce every piece in-house.",
-      "cta": "Start your project"
+      "cta": "Start your project",
+      "waMessage": "Hi Sacha — I'd love to begin a universe for my event."
     },
     "shop": {
       "eyebrow": "From The Collection",
@@ -59,9 +60,9 @@
     },
     "usp": {
       "items": [
-        "Designed & printed in Israel",
-        "Ships nationwide",
-        "Premium stock"
+        "Designed & made in Israel",
+        "One artistic eye, every piece",
+        "Ships nationwide"
       ]
     },
     "bespokeTeaser": {
@@ -125,10 +126,13 @@
     "remove": "Remove",
     "qty": "Qty",
     "subtotal": "Subtotal",
-    "subtotalNote": "Shipping and any installments are arranged at checkout.",
+    "subtotalNote": "Courier about ₪50, or free studio pickup — confirmed at checkout.",
+    "vat": "Prices include VAT.",
     "checkout": "Proceed to checkout",
     "continue": "Continue shopping",
-    "summary": "Order summary"
+    "summary": "Order summary",
+    "decreaseQty": "Decrease quantity",
+    "increaseQty": "Increase quantity"
   },
   "checkout": {
     "title": "Checkout",
@@ -140,10 +144,13 @@
     "optional": "optional",
     "orderSummary": "Order summary",
     "subtotal": "Subtotal",
+    "vat": "Prices include VAT.",
+    "payWith": "Pay by card, Bit, or in installments",
     "payNote": "Pay securely with credit card, Bit, or in installments (תשלומים) on the next screen.",
     "secureNote": "You'll be redirected to a secure, hosted payment page.",
     "pay": "Continue to payment",
     "backToCart": "Back to cart",
+    "contactRequired": "Please add an email or phone so we can send your proof.",
     "installments": "Installments available",
     "placeholder": {
       "title": "Payment isn't live yet",
@@ -178,7 +185,8 @@
     "cta": "Create your own universe",
     "ctaBody": "Tell me the feeling you're after — I'll design the world around it.",
     "backToPortfolio": "Back to Portfolio",
-    "waMessage": "Hi Sacha — I saw the {title} universe and I'd love to create my own."
+    "waMessage": "Hi Sacha — I saw the {title} universe and I'd love to create my own.",
+    "beginWaMessage": "Hi Sacha — I'd love to begin a bespoke universe for my event."
   },
   "studio": {
     "eyebrow": "The Studio",
@@ -186,7 +194,7 @@
     "role": "Sacha — Artistic Director",
     "body": "I'm Sacha, and I founded Paperly to do one thing well: give an event a world of its own. I came to this from interior architecture, where I learned that beauty is never an accident — it's the result of proportion, material, and a single point of view holding everything together. I bring that same discipline to an evening: I start from a feeling, build a complete visual universe around it, and then make every printed piece answer to it. I keep the studio small on purpose, so nothing leaves my hands without intention. You bring the vision, or the beginnings of one. I make it real, and I make it yours.",
     "pullQuote": "Beauty is never an accident. It's a point of view, held steady.",
-    "cta": "Start your project",
+    "cta": "Begin your universe",
     "waMessage": "Hi Sacha — I read about the studio and I'd love to talk about my event."
   },
   "howItWorks": {
@@ -257,6 +265,36 @@
     "title": "From the studio",
     "cta": "Follow @paper.ly_",
     "fallback": "See the latest work on Instagram."
+  },
+  "faq": {
+    "title": "Good to know",
+    "items": [
+      {
+        "q": "How far ahead should I order?",
+        "a": "Collection pieces are made to order in about 7–10 days. For a bespoke universe, reach out as early as you can — most projects run over several weeks."
+      },
+      {
+        "q": "Do I see a proof before anything is produced?",
+        "a": "Yes. Nothing is produced until you approve a digital proof, so it's right before it's final."
+      },
+      {
+        "q": "Collection or bespoke — which is for me?",
+        "a": "The Collection is ready-made pieces you order directly. A bespoke universe is a complete world designed around your event, by conversation. Many begin with the Collection and commission a universe later."
+      },
+      {
+        "q": "How do I receive my order?",
+        "a": "Instant digital download, local courier (about ₪50), or studio pickup by appointment."
+      },
+      {
+        "q": "Can I change names or details after ordering?",
+        "a": "Until you approve the proof, yes. Once production begins, personalized pieces are final."
+      }
+    ]
+  },
+  "consent": {
+    "message": "We use cookies to measure and improve the site.",
+    "accept": "Accept",
+    "decline": "Decline"
   },
   "footer": {
     "blurb": "An artistic-direction studio for unforgettable events. We design the world your evening lives in — the vision, not the paper.",

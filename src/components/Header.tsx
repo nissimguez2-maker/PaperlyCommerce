@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link, usePathname } from '@/i18n/navigation';
 import { Logo } from './Logo';
@@ -23,6 +23,17 @@ export function Header() {
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
+  // Close the mobile drawer on route change and on Escape.
+  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
+  }, [open]);
+
   return (
     <header className="sticky top-0 z-40 border-b border-hairline bg-paper/95 backdrop-blur-sm">
       <div className="container-page flex h-16 items-center justify-between gap-6 md:h-20">
@@ -34,8 +45,9 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
+              aria-current={isActive(item.href) ? 'page' : undefined}
               className={`text-button uppercase transition-colors hover:text-ink ${
-                isActive(item.href) ? 'text-ink' : 'text-ink-60'
+                isActive(item.href) ? 'text-ink underline decoration-beige-accent decoration-2 underline-offset-8' : 'text-ink-60'
               }`}
             >
               {t(item.key)}
@@ -50,6 +62,7 @@ export function Header() {
             type="button"
             className="lg:hidden"
             aria-expanded={open}
+            aria-controls="mobile-nav"
             aria-label={t('menu')}
             onClick={() => setOpen((v) => !v)}
           >
@@ -61,6 +74,7 @@ export function Header() {
       {/* Mobile drawer */}
       {open && (
         <nav
+          id="mobile-nav"
           className="border-t border-hairline bg-paper lg:hidden"
           aria-label={t('primary')}
         >
@@ -70,6 +84,7 @@ export function Header() {
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
+                  aria-current={isActive(item.href) ? 'page' : undefined}
                   className={`block py-3 text-button uppercase ${
                     isActive(item.href) ? 'text-ink' : 'text-ink-60'
                   }`}

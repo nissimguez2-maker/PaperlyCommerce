@@ -76,16 +76,18 @@ export function CartView() {
                       type="button"
                       onClick={() => setQty(line.productSlug, line.variantId, line.qty - 1)}
                       className="px-3 py-2 leading-none transition-colors hover:bg-beige-soft"
-                      aria-label="−"
+                      aria-label={`${tc('decreaseQty')} — ${t(line.product.name, locale)}`}
                     >
                       −
                     </button>
-                    <span className="min-w-8 px-1 text-center tabular-nums">{line.qty}</span>
+                    <span className="min-w-8 px-1 text-center tabular-nums" aria-live="polite">
+                      {line.qty}
+                    </span>
                     <button
                       type="button"
                       onClick={() => setQty(line.productSlug, line.variantId, line.qty + 1)}
                       className="px-3 py-2 leading-none transition-colors hover:bg-beige-soft"
-                      aria-label="+"
+                      aria-label={`${tc('increaseQty')} — ${t(line.product.name, locale)}`}
                     >
                       +
                     </button>
@@ -111,7 +113,7 @@ export function CartView() {
               <span className="text-lg">{tc('subtotal')}</span>
               <span className="font-body text-xl font-semibold">{formatPrice(subtotal)}</span>
             </div>
-            <p className="mt-2 text-caption text-ink-60">{tc('subtotalNote')}</p>
+            <p className="mt-2 text-caption text-ink-60">{tc('vat')} {tc('subtotalNote')}</p>
             <Link href="/checkout" className="btn-primary btn-block mt-6">
               {tc('checkout')}
             </Link>

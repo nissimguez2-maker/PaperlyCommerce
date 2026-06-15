@@ -32,21 +32,21 @@ const config: Config = {
       display: ['var(--font-display)', 'Cormorant Garamond', 'Georgia', 'serif'],
       body: ['var(--font-body)', 'Work Sans', 'system-ui', 'sans-serif'],
     },
-    // Editorial type scale (desktop). Mobile handled with responsive utilities.
-    fontSize: {
-      label: ['0.75rem', { lineHeight: '1.4', letterSpacing: '0.16em' }], // 12, uppercase 2px-ish
-      button: ['0.875rem', { lineHeight: '1', letterSpacing: '0.1em' }],  // 14, uppercase 1.5px
-      caption: ['0.8125rem', { lineHeight: '1.6' }],                       // 13
-      base: ['1rem', { lineHeight: '1.7' }],                               // 16
-      lg: ['1.125rem', { lineHeight: '1.7' }],                             // 18 body large
-      xl: ['1.375rem', { lineHeight: '1.6' }],                             // 22
-      h3: ['2rem', { lineHeight: '1.2' }],                                 // 32
-      h2: ['3rem', { lineHeight: '1.1' }],                                 // 48
-      'h2-sm': ['2.25rem', { lineHeight: '1.12' }],                        // 36 mobile h2
-      h1: ['4.5rem', { lineHeight: '1.05', letterSpacing: '-0.01em' }],    // 72
-      'h1-sm': ['2.5rem', { lineHeight: '1.08', letterSpacing: '-0.01em' }], // 40 mobile h1
-    },
     extend: {
+      // Editorial type tokens, ADDED to Tailwind's defaults (so text-2xl/3xl/… still work).
+      fontSize: {
+        label: ['0.75rem', { lineHeight: '1.4', letterSpacing: '0.16em' }], // 12, uppercase
+        button: ['0.875rem', { lineHeight: '1', letterSpacing: '0.1em' }],  // 14, uppercase
+        caption: ['0.8125rem', { lineHeight: '1.6' }],                       // 13
+        base: ['1rem', { lineHeight: '1.7' }],                               // 16
+        lg: ['1.125rem', { lineHeight: '1.7' }],                             // 18 body large
+        xl: ['1.375rem', { lineHeight: '1.6' }],                             // 22
+        h3: ['2rem', { lineHeight: '1.2' }],                                 // 32
+        h2: ['3rem', { lineHeight: '1.1' }],                                 // 48
+        'h2-sm': ['2.25rem', { lineHeight: '1.12' }],                        // 36 mobile h2
+        h1: ['4.5rem', { lineHeight: '1.05', letterSpacing: '-0.01em' }],    // 72
+        'h1-sm': ['2.5rem', { lineHeight: '1.08', letterSpacing: '-0.01em' }], // 40 mobile h1
+      },
       maxWidth: {
         content: '1280px',  // max content width
         text: '680px',      // readable text column

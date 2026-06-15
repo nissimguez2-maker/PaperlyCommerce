@@ -42,11 +42,14 @@ export function productJsonLd(product: Product, locale: Locale, url: string): Js
     description: t(product.description, locale),
     brand: { '@type': 'Brand', name: site.name },
     url,
+    image: product.images.length
+      ? `${site.url}${product.images[0]}`
+      : `${site.url}/og/default.jpg`,
     offers: {
       '@type': 'Offer',
       priceCurrency: 'ILS',
       price: minPrice(product),
-      availability: 'https://schema.org/InStock',
+      availability: 'https://schema.org/MadeToOrder',
       url,
       seller: { '@type': 'Organization', name: site.name },
     },
@@ -56,6 +59,18 @@ export function productJsonLd(product: Product, locale: Locale, url: string): Js
 export interface Crumb {
   name: string;
   path: string;
+}
+
+export function faqJsonLd(items: { q: string; a: string }[]): Json {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((i) => ({
+      '@type': 'Question',
+      name: i.q,
+      acceptedAnswer: { '@type': 'Answer', text: i.a },
+    })),
+  };
 }
 
 export function breadcrumbJsonLd(locale: Locale, crumbs: Crumb[]): Json {

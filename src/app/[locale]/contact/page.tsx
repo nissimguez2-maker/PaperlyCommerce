@@ -64,6 +64,8 @@ export default async function ContactPage({
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary mt-8 self-start"
+              data-track="whatsapp_click"
+              data-context="contact"
             >
               {t('whatsappCta')}
             </a>

@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import type { Product } from '@/data/types';
 import type { Locale } from '@/i18n/routing';
 import { formatPrice, t } from '@/lib/format';
+import { track } from '@/lib/analytics';
 import { useCart } from '@/components/cart/CartProvider';
 
 /** Resolve the variant matching the currently selected option values. */
@@ -32,6 +33,13 @@ export function ProductPurchase({ product, locale }: { product: Product; locale:
 
   const onAdd = () => {
     addLine({ productSlug: product.slug, variantId: variant.id, qty });
+    track('add_to_cart', {
+      currency: 'ILS',
+      value: variant.price * qty,
+      item_id: variant.id,
+      item_name: t(product.name, locale),
+      quantity: qty,
+    });
     setJustAdded(true);
     window.setTimeout(() => setJustAdded(false), 1800);
   };
@@ -40,9 +48,7 @@ export function ProductPurchase({ product, locale }: { product: Product; locale:
 
   return (
     <div>
-      <p className="mt-4 font-body text-3xl font-semibold text-ink" aria-live="polite">
-        {priceLabel}
-      </p>
+      <p className="mt-4 font-body text-3xl font-semibold text-ink">{priceLabel}</p>
 
       {/* Option selectors */}
       {product.optionGroups.map((group) => (
@@ -79,18 +85,16 @@ export function ProductPurchase({ product, locale }: { product: Product; locale:
             type="button"
             onClick={() => setQty((q) => Math.max(1, q - 1))}
             className="px-4 py-3 text-lg leading-none transition-colors hover:bg-beige-soft"
-            aria-label="−"
+            aria-label={tc('decreaseQty')}
           >
             −
           </button>
-          <span className="min-w-10 px-2 text-center tabular-nums" aria-live="polite">
-            {qty}
-          </span>
+          <span className="min-w-10 px-2 text-center tabular-nums">{qty}</span>
           <button
             type="button"
             onClick={() => setQty((q) => q + 1)}
             className="px-4 py-3 text-lg leading-none transition-colors hover:bg-beige-soft"
-            aria-label="+"
+            aria-label={tc('increaseQty')}
           >
             +
           </button>
@@ -101,6 +105,9 @@ export function ProductPurchase({ product, locale }: { product: Product; locale:
       <button type="button" onClick={onAdd} className="btn-primary btn-block mt-8">
         {justAdded ? `${tp('added')} ✓` : tp('addToCart')}
       </button>
+      <span role="status" aria-live="polite" className="sr-only">
+        {justAdded ? `${t(product.name, locale)} — ${tp('added')}` : ''}
+      </span>
 
       <p className="mt-4 text-caption text-ink-60">{tp('finalSale')}</p>
 

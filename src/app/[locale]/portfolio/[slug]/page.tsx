@@ -51,6 +51,7 @@ export default async function UniversePage({
 
   const tp = await getTranslations({ locale, namespace: 'portfolio' });
   const tn = await getTranslations({ locale, namespace: 'nav' });
+  const tc = await getTranslations({ locale, namespace: 'common' });
   const title = t(universe.title, locale);
   const url = localeUrl(locale, `/portfolio/${universe.slug}`);
   const sections = {
@@ -159,8 +160,10 @@ export default async function UniversePage({
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary mt-8"
+            data-track="whatsapp_click"
+            data-context="universe"
           >
-            {tp('cta')}
+            {tc('begin')}
           </a>
           <div className="mt-8">
             <Link href="/portfolio" className="link-quiet justify-center">

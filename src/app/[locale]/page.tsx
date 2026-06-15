@@ -4,7 +4,6 @@ import { JsonLd } from '@/components/JsonLd';
 import { localBusinessJsonLd } from '@/lib/jsonld';
 import { Hero } from '@/components/home/Hero';
 import {
-  LeadBand,
   TwoDoors,
   ShoppableModule,
   UspStrip,
@@ -25,7 +24,6 @@ export default async function HomePage({
     <>
       <JsonLd data={localBusinessJsonLd(locale)} />
       <Hero />
-      <LeadBand />
       <TwoDoors />
       <ShoppableModule locale={locale} />
       <UspStrip />

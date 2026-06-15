@@ -73,6 +73,8 @@ export default async function StudioPage({
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary mt-10"
+                data-track="whatsapp_click"
+                data-context="studio"
               >
                 {t('cta')}
               </a>

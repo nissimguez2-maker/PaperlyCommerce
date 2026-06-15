@@ -43,6 +43,8 @@ export interface Product {
   name: I18nText;
   /** One-line editorial line under the name. */
   tagline: I18nText;
+  /** Optional richer SEO <title> (intent-bearing); falls back to name. */
+  seoTitle?: I18nText;
   description: I18nText;
   /** "What's included" — art direction, premium stock, personalization, etc. */
   included: I18nList;

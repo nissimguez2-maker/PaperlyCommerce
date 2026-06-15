@@ -10,6 +10,7 @@ import { CartProvider } from '@/components/cart/CartProvider';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
+import { Analytics } from '@/components/Analytics';
 import '../globals.css';
 
 export function generateStaticParams() {
@@ -65,6 +66,7 @@ export default async function LocaleLayout({
             </main>
             <Footer />
             <WhatsAppButton />
+            <Analytics />
           </CartProvider>
         </NextIntlClientProvider>
       </body>

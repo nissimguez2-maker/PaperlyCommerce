@@ -3,10 +3,11 @@ import type { Locale } from '@/i18n/routing';
 
 /**
  * Format a whole-shekel amount as ILS. Numbers are NEVER mirrored in RTL,
- * so we keep Latin digits and the ₪ glyph in both locales.
+ * so we wrap the ₪+digits unit in a Unicode LTR isolate (FSI…PDI) — this keeps
+ * the glyph/number order correct even inside Hebrew/RTL flows.
  */
 export function formatPrice(amount: number): string {
-  return `₪${amount.toLocaleString('en-US')}`;
+  return `⁦₪${amount.toLocaleString('en-US')}⁩`;
 }
 
 /** Pick the right language out of a bilingual field. */

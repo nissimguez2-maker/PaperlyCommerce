@@ -9,21 +9,7 @@ import { getProductBySlug } from '@/data/catalog';
 import { universes } from '@/data/portfolio';
 import { t as tx } from '@/lib/format';
 
-/* 2. Lead band — the first-person vision statement (kept high on the page). */
-export function LeadBand() {
-  const t = useTranslations('home.hero');
-  return (
-    <section className="section">
-      <div className="container-page">
-        <p className="measure mx-auto text-center font-display text-h3 leading-snug md:text-[2.4rem] md:leading-[1.25]">
-          {t('para')}
-        </p>
-      </div>
-    </section>
-  );
-}
-
-/* 3. Two-door chooser — Bespoke vs The Collection. */
+/* 2. Two-door chooser — Bespoke vs The Collection. */
 export function TwoDoors() {
   const t = useTranslations('home.doors');
   return (
@@ -175,28 +161,27 @@ export function BespokeTeaser({ locale }: { locale: Locale }) {
   );
 }
 
-/* 7. Studio band — authority + a signed note (social proof, no fabricated reviews). */
+/* 7. Studio band — one concise credibility beat + the bespoke action. */
 export function StudioBand() {
   const a = useTranslations('home.authority');
   const p = useTranslations('home.proof');
+  const c = useTranslations('common');
   return (
     <section className="section bg-beige-soft/50">
-      <div className="container-page grid gap-10 md:grid-cols-12">
-        <div className="md:col-span-5">
-          <p className="label">{a('eyebrow')}</p>
-          <p className="mt-4 font-display text-h3 leading-snug">{a('body')}</p>
-          <Link href="/studio" className="link-quiet mt-6">
-            {a('cta')}
-            <Arrow />
-          </Link>
-        </div>
-        <figure className="md:col-span-6 md:col-start-7">
-          <p className="label">{p('eyebrow')}</p>
-          <blockquote className="mt-4 max-w-text text-lg leading-relaxed text-ink">
-            “{p('note')}”
-          </blockquote>
-          <figcaption className="mt-5 text-caption text-ink-60">{p('signature')}</figcaption>
-        </figure>
+      <div className="container-page max-w-text text-center mx-auto">
+        <p className="label">{a('eyebrow')}</p>
+        <p className="mt-4 font-display text-h3 leading-snug">{a('body')}</p>
+        <p className="mt-5 text-caption text-ink-60">{p('signature')}</p>
+        <a
+          href={whatsappLink(a('waMessage'))}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-primary mt-8"
+          data-track="whatsapp_click"
+          data-context="home-studio"
+        >
+          {c('begin')}
+        </a>
       </div>
     </section>
   );
@@ -217,6 +202,8 @@ export function ContactBand() {
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"
+            data-track="whatsapp_click"
+            data-context="home-contact"
           >
             {t('whatsapp')}
           </a>
@@ -225,6 +212,8 @@ export function ContactBand() {
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary"
+            data-track="instagram_click"
+            data-context="home-contact"
           >
             {t('instagram')}
           </a>

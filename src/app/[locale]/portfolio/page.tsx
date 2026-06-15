@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import type { Locale } from '@/i18n/routing';
 import { buildMetadata } from '@/lib/seo';
+import { whatsappLink } from '@/lib/site';
 import { universes } from '@/data/portfolio';
 import { UniverseCard } from '@/components/portfolio/UniverseCard';
 import { JsonLd } from '@/components/JsonLd';
@@ -32,6 +33,7 @@ export default async function PortfolioPage({
   setRequestLocale(locale);
   const tp = await getTranslations({ locale, namespace: 'portfolio' });
   const tn = await getTranslations({ locale, namespace: 'nav' });
+  const tc = await getTranslations({ locale, namespace: 'common' });
 
   return (
     <>
@@ -54,6 +56,23 @@ export default async function PortfolioPage({
           {universes.map((universe, i) => (
             <UniverseCard key={universe.slug} universe={universe} locale={locale} priority={i === 0} />
           ))}
+        </div>
+      </section>
+
+      <section className="section pt-0">
+        <div className="container-page border-t border-hairline pt-12 text-center">
+          <h2 className="mx-auto max-w-[18ch] text-h2-sm md:text-h2">{tp('cta')}</h2>
+          <p className="measure mx-auto mt-4 text-ink-60">{tp('ctaBody')}</p>
+          <a
+            href={whatsappLink(tp('beginWaMessage'))}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary mt-8"
+            data-track="whatsapp_click"
+            data-context="portfolio-index"
+          >
+            {tc('begin')}
+          </a>
         </div>
       </section>
     </>

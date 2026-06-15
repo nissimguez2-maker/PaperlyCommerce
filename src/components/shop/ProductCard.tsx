@@ -5,6 +5,7 @@ import type { Locale } from '@/i18n/routing';
 import { formatPrice, t } from '@/lib/format';
 import { productPath } from '@/data/catalog';
 import { Media } from '@/components/Media';
+import { Arrow } from '@/components/Arrow';
 import { AddToCartButton } from './AddToCartButton';
 
 interface Props {
@@ -16,12 +17,16 @@ interface Props {
 
 /**
  * Product card — 4:5, no shadow, price is the boldest text.
- * "Add to cart" adds the smallest variant (the minimum order).
+ * Single-variant items add to cart directly; multi-variant items (where set
+ * size / format must be chosen) route to the product page instead of silently
+ * adding the cheapest set.
  */
 export function ProductCard({ product, locale, priority, sizes }: Props) {
   const tc = useTranslations('product');
+  const tcm = useTranslations('common');
   const href = productPath(product);
   const defaultVariant = product.variants[0];
+  const multiVariant = product.optionGroups.length > 0;
 
   return (
     <article className="group flex flex-col">
@@ -51,16 +56,28 @@ export function ProductCard({ product, locale, priority, sizes }: Props) {
 
         <div className="mt-3 flex items-center justify-between gap-3">
           <span className="font-body text-lg font-semibold text-ink">
-            {formatPrice(defaultVariant.price)}
+            {multiVariant ? `${tcm('from')} ${formatPrice(defaultVariant.price)}` : formatPrice(defaultVariant.price)}
           </span>
         </div>
 
         <div className="mt-4">
-          <AddToCartButton
-            productSlug={product.slug}
-            variantId={defaultVariant.id}
-            className="btn-block text-[13px] px-5 py-3"
-          />
+          {multiVariant ? (
+            <Link
+              href={href}
+              className="btn-secondary btn-block text-[13px] px-5 py-3"
+            >
+              {tcm('chooseOptions')}
+              <Arrow />
+            </Link>
+          ) : (
+            <AddToCartButton
+              productSlug={product.slug}
+              variantId={defaultVariant.id}
+              itemName={t(product.name, locale)}
+              price={defaultVariant.price}
+              className="btn-block text-[13px] px-5 py-3"
+            />
+          )}
         </div>
       </div>
     </article>

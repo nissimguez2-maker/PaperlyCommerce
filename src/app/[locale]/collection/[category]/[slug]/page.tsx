@@ -36,10 +36,11 @@ export async function generateMetadata({
   if (!product) return {};
   const ts = await getTranslations({ locale, namespace: 'seo' });
   const desc = t(product.description, locale);
+  const titleBase = product.seoTitle ? t(product.seoTitle, locale) : t(product.name, locale);
   return buildMetadata({
     locale,
     path: productPath(product),
-    title: `${t(product.name, locale)} — ${ts('productSuffix')}`,
+    title: `${titleBase} — ${ts('productSuffix')}`,
     description: desc.length > 152 ? `${desc.slice(0, 152)}…` : desc,
   });
 }

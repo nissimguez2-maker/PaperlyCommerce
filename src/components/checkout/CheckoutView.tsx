@@ -7,6 +7,7 @@ import { Link } from '@/i18n/navigation';
 import { cartSubtotal, resolveLines } from '@/lib/cart';
 import { formatPrice, t } from '@/lib/format';
 import { whatsappLink } from '@/lib/site';
+import { track } from '@/lib/analytics';
 import { Arrow } from '@/components/Arrow';
 import { useCart } from '@/components/cart/CartProvider';
 
@@ -21,6 +22,7 @@ export function CheckoutView() {
 
   const [phase, setPhase] = useState<Phase>('form');
   const [customer, setCustomer] = useState({ fullName: '', email: '', phone: '' });
+  const [contactError, setContactError] = useState(false);
 
   if (!ready) return <div className="container-page section min-h-[40vh]" aria-hidden />;
 
@@ -42,11 +44,20 @@ export function CheckoutView() {
           `• ${t(l.product.name, locale)} — ${t(l.variant.label, locale)} ×${l.qty} (${formatPrice(l.lineTotal)})`,
       )
       .join('\n');
-    return `${tc('placeholder.waMessage')}\n${linesText}\n${tc('subtotal')}: ${formatPrice(subtotal)}`;
+    const who = [customer.fullName, customer.phone, customer.email].filter(Boolean).join(' · ');
+    const whoLine = who ? `\n${who}` : '';
+    return `${tc('placeholder.waMessage')}\n${linesText}\n${tc('subtotal')}: ${formatPrice(subtotal)}${whoLine}`;
   };
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // Require at least one contact channel so we can send the proof.
+    if (!customer.email.trim() && !customer.phone.trim()) {
+      setContactError(true);
+      return;
+    }
+    setContactError(false);
+    track('begin_checkout', { currency: 'ILS', value: subtotal, items: resolved.length });
     setPhase('processing');
     try {
       const res = await fetch('/api/checkout', {
@@ -86,6 +97,8 @@ export function CheckoutView() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary mt-6"
+                data-track="whatsapp_click"
+                data-context="checkout-fallback"
               >
                 {tc('placeholder.cta')}
               </a>
@@ -120,6 +133,21 @@ export function CheckoutView() {
               <p className="mt-6 text-caption text-ink-60">{tc('payNote')}</p>
               <p className="mt-1 text-caption text-ink-60">{tc('secureNote')}</p>
 
+              {/* Payment marks — practical reassurance for the Israeli buyer. */}
+              <div className="mt-4 flex flex-wrap items-center gap-2" aria-label={tc('payWith')}>
+                {['Visa', 'Mastercard', 'Isracard', 'Bit', 'תשלומים'].map((mark) => (
+                  <span
+                    key={mark}
+                    className="border border-hairline px-2.5 py-1 text-caption text-ink-60"
+                  >
+                    {mark}
+                  </span>
+                ))}
+              </div>
+
+              {contactError && (
+                <p className="mt-4 text-caption text-danger">{tc('contactRequired')}</p>
+              )}
               {phase === 'error' && (
                 <p className="mt-4 text-caption text-danger">{tc('error')}</p>
               )}
@@ -138,6 +166,8 @@ export function CheckoutView() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="link-quiet mt-5"
+                  data-track="whatsapp_click"
+                  data-context="checkout-error"
                 >
                   {tc('placeholder.cta')}
                   <Arrow />
@@ -173,7 +203,7 @@ export function CheckoutView() {
               <span className="text-lg">{tc('subtotal')}</span>
               <span className="font-body text-xl font-semibold">{formatPrice(subtotal)}</span>
             </div>
-            <p className="mt-3 text-caption text-ink-60">{tc('installments')}</p>
+            <p className="mt-3 text-caption text-ink-60">{tc('vat')} {tc('installments')}</p>
           </div>
         </aside>
       </div>
@@ -206,7 +236,7 @@ function Field({
         required={required}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="mt-2 w-full rounded-none border border-hairline bg-paper px-4 py-3 text-ink outline-none transition-colors focus:border-ink"
+        className="mt-2 w-full rounded-none border border-ink-60 bg-paper px-4 py-3 text-ink transition-colors focus:border-ink"
       />
     </label>
   );

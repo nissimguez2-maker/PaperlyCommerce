@@ -9,7 +9,13 @@ export function WhatsAppButton() {
   const t = useTranslations('common');
   const pathname = usePathname();
 
-  if (pathname.startsWith('/cart') || pathname.startsWith('/checkout')) return null;
+  // Hide on cart/checkout, and on product detail pages (where the mobile sticky
+  // add-to-cart bar would otherwise collide with the floating button).
+  const segments = pathname.split('/').filter(Boolean);
+  const isProductPage = segments[0] === 'collection' && segments.length >= 3;
+  if (pathname.startsWith('/cart') || pathname.startsWith('/checkout') || isProductPage) {
+    return null;
+  }
 
   return (
     <a
@@ -17,6 +23,8 @@ export function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={t('waAria')}
+      data-track="whatsapp_click"
+      data-context="float"
       className="fixed bottom-5 end-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-ink text-paper shadow-lg transition-transform duration-300 ease-editorial hover:scale-105 hover:bg-beige-accent hover:text-ink"
     >
       <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden>

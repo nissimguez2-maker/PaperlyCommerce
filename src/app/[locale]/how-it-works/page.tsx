@@ -4,8 +4,9 @@ import type { Locale } from '@/i18n/routing';
 import { buildMetadata } from '@/lib/seo';
 import { whatsappLink } from '@/lib/site';
 import { Link } from '@/i18n/navigation';
+import { Faq } from '@/components/Faq';
 import { JsonLd } from '@/components/JsonLd';
-import { breadcrumbJsonLd } from '@/lib/jsonld';
+import { breadcrumbJsonLd, faqJsonLd } from '@/lib/jsonld';
 
 export async function generateMetadata({
   params,
@@ -31,16 +32,21 @@ export default async function HowItWorksPage({
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: 'howItWorks' });
   const tn = await getTranslations({ locale, namespace: 'nav' });
+  const tf = await getTranslations({ locale, namespace: 'faq' });
   const bespokeSteps = t.raw('bespoke.steps') as string[];
   const collectionSteps = t.raw('collection.steps') as string[];
+  const faqItems = tf.raw('items') as { q: string; a: string }[];
 
   return (
     <>
       <JsonLd
-        data={breadcrumbJsonLd(locale, [
-          { name: 'Home', path: '/' },
-          { name: tn('howItWorks'), path: '/how-it-works' },
-        ])}
+        data={[
+          breadcrumbJsonLd(locale, [
+            { name: 'Home', path: '/' },
+            { name: tn('howItWorks'), path: '/how-it-works' },
+          ]),
+          faqJsonLd(faqItems),
+        ]}
       />
 
       <section className="section pb-0">
@@ -95,6 +101,8 @@ export default async function HowItWorksPage({
           </div>
         </div>
       </section>
+
+      <Faq />
     </>
   );
 }
@@ -124,7 +132,7 @@ function Path({
       <ol className="mt-8 flex-1 space-y-5">
         {steps.map((step, i) => (
           <li key={step} className="flex gap-4">
-            <span className="font-display text-xl leading-none text-beige-accent">
+            <span className="font-display text-xl leading-none text-ink-60">
               {String(i + 1).padStart(2, '0')}
             </span>
             <span className="text-ink">{step}</span>
