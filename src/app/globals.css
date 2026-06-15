@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------------
+   Paperly — design tokens (brief §6). Editorial, minimal, "very chic".
+   --------------------------------------------------------------------------- */
+:root {
+  --ink: #111111;
+  --ink-60: #5c5c5c;
+  --paper: #fafaf8;
+  --beige-accent: #cbb89d;
+  --beige-soft: #f1ebe1;
+  --hairline: #e4ded2;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body), 'Work Sans', system-ui, sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Display serif for headlines only — never mixed into a body line. */
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display), 'Cormorant Garamond', Georgia, serif;
+    font-weight: 500;
+  }
+
+  /* Hebrew swaps the font stacks; RTL handled by [dir] on <html>. */
+  :lang(he) body,
+  [dir='rtl'] body {
+    font-family: var(--font-body-he), 'Heebo', system-ui, sans-serif;
+  }
+  :lang(he) h1, :lang(he) h2, :lang(he) h3, :lang(he) .font-display,
+  [dir='rtl'] h1, [dir='rtl'] h2, [dir='rtl'] h3, [dir='rtl'] .font-display {
+    font-family: var(--font-display-he), 'Frank Ruhl Libre', Georgia, serif;
+  }
+
+  ::selection {
+    background: var(--beige-accent);
+    color: var(--ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Layout shells ------------------------------------------------------- */
+  .container-page {
+    @apply mx-auto w-full max-w-content px-6 md:px-10;
+  }
+  .section {
+    @apply py-section-sm md:py-section;
+  }
+  .measure {
+    @apply max-w-text;
+  }
+
+  /* Editorial labels (12 / uppercase / wide tracking) ------------------- */
+  .label {
+    @apply text-label uppercase text-ink-60;
+  }
+
+  /* The ONE button shape — square, ~0–2px radius ------------------------ */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-none
+           px-7 py-4 text-button uppercase transition-colors duration-300
+           ease-editorial whitespace-nowrap;
+  }
+  .btn-primary {
+    @apply btn bg-ink text-paper hover:bg-beige-accent hover:text-ink;
+  }
+  .btn-secondary {
+    @apply btn border border-ink bg-transparent text-ink
+           hover:bg-ink hover:text-paper;
+  }
+  .btn-block {
+    @apply w-full;
+  }
+
+  /* Quiet inline link with an animated rule --------------------------- */
+  .link-quiet {
+    @apply inline-flex items-center gap-2 text-button uppercase text-ink
+           transition-colors duration-300 hover:text-ink-60;
+  }
+
+  /* Editorial placeholder — solid beige-soft, never a gray box --------- */
+  .placeholder-fill {
+    background-color: var(--beige-soft);
+  }
+
+  .hairline {
+    border-color: var(--hairline);
+  }
+}
+
+@layer utilities {
+  /* A subtle rising-in reveal used sparingly for editorial calm. */
+  .reveal {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: reveal 0.8s var(--tw-ease, cubic-bezier(0.22, 1, 0.36, 1)) forwards;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { animation: none; opacity: 1; transform: none; }
+    html { scroll-behavior: auto; }
+  }
+  @keyframes reveal {
+    to { opacity: 1; transform: none; }
+  }
+}

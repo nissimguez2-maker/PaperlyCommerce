@@ -1,0 +1,315 @@
+{
+  "nav": {
+    "primary": "Primary",
+    "collection": "The Collection",
+    "portfolio": "Portfolio",
+    "studio": "The Studio",
+    "howItWorks": "How It Works",
+    "contact": "Contact",
+    "cart": "Cart",
+    "menu": "Menu"
+  },
+  "common": {
+    "skipToContent": "Skip to content",
+    "waFloating": "Hi Paperly — I'd love to talk about an event.",
+    "waAria": "Message Paperly on WhatsApp",
+    "addToCart": "Add to cart",
+    "added": "Added",
+    "viewAll": "View all",
+    "viewProduct": "View piece",
+    "learnMore": "Learn more",
+    "explore": "Explore",
+    "begin": "Begin your universe",
+    "startProject": "Start your project"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Artistic direction for events",
+      "h1": "We don't design invitations. We design the world your evening lives in.",
+      "sub": "A studio for the artistic direction of unforgettable events.",
+      "para": "Every great evening has a feeling before it has a date. My work begins there — in the atmosphere you can already sense but can't yet name. From a single emotion I build a complete visual universe: its palette, its materials, its rhythm, its smallest printed detail. You are not choosing paper. You are commissioning a vision, made whole.",
+      "ctaBespoke": "Explore Bespoke",
+      "ctaShop": "Shop The Collection"
+    },
+    "doors": {
+      "eyebrow": "Two ways to begin",
+      "bespoke": {
+        "label": "Bespoke",
+        "title": "Bespoke Universes",
+        "body": "Full artistic direction. We create a complete world for your event — palette, materials, typography and every printed piece, held together by one point of view.",
+        "cta": "Explore the portfolio"
+      },
+      "collection": {
+        "label": "Shop",
+        "title": "The Collection",
+        "body": "Ready-made pieces, designed by the studio and bought directly. Refined, considered, and ready for your table — without a single conversation if you prefer.",
+        "cta": "Shop The Collection"
+      }
+    },
+    "authority": {
+      "eyebrow": "One eye, start to finish",
+      "body": "Every Paperly event begins with one person's eye. Sacha — Artistic Director, trained in interior architecture — designs a complete visual universe for your event, then we produce every piece in-house.",
+      "cta": "Start your project"
+    },
+    "shop": {
+      "eyebrow": "From The Collection",
+      "title": "Begin at the table",
+      "subtitle": "Designed by the studio, ready to order.",
+      "viewAll": "View all of The Collection"
+    },
+    "usp": {
+      "items": [
+        "Designed & printed in Israel",
+        "Ships nationwide",
+        "Premium stock"
+      ]
+    },
+    "bespokeTeaser": {
+      "eyebrow": "A recent universe",
+      "title": "Chloé & Albert — a wedding in deep green",
+      "body": "Deep green and candlelight, with one deliberate note of pop-art. See how a single feeling becomes a complete world.",
+      "cta": "Enter the universe"
+    },
+    "proof": {
+      "eyebrow": "A note from the studio",
+      "note": "I keep Paperly small on purpose, so that every event has my full attention and a single point of view holding it together. If you are planning something that should feel like nowhere else, I would love to hear what you can already imagine.",
+      "signature": "Sacha — Artistic Director, Paperly"
+    },
+    "contactBand": {
+      "eyebrow": "Let's talk",
+      "title": "Tell me about your evening",
+      "body": "The best projects start with a conversation. Reach the studio directly on WhatsApp, or follow the work on Instagram.",
+      "whatsapp": "Message on WhatsApp",
+      "instagram": "Follow on Instagram",
+      "waMessage": "Hi Sacha — I'm planning an event and would love to talk about a Paperly universe."
+    }
+  },
+  "collection": {
+    "eyebrow": "The Collection",
+    "title": "Designed by the studio, ready for your table",
+    "intro": "Ready-made pieces with the studio's eye — sold as sets, made in studio on premium stock. For a complete world built around your event, explore the bespoke universes.",
+    "completeSetsNote": "Start here — a whole table dressed in one piece.",
+    "favourite": "Studio favourite",
+    "addToCart": "Add to cart",
+    "bespokeNudge": {
+      "title": "Want a world of your own?",
+      "body": "The Collection is the studio's ready-made eye. For a complete universe designed around your event, begin a bespoke project.",
+      "cta": "Explore Bespoke"
+    }
+  },
+  "product": {
+    "home": "Home",
+    "collection": "The Collection",
+    "included": "What's included",
+    "details": "Details",
+    "dimensions": "Format",
+    "fulfillment": "Fulfillment & lead time",
+    "finalSale": "Personalized pieces are made to order and final sale — non-refundable once production begins.",
+    "addToCart": "Add to cart",
+    "added": "Added to cart",
+    "selectFormat": "Choose a format",
+    "selectPack": "Choose a set size",
+    "crossSell": "Completes the table",
+    "backToCollection": "Back to The Collection",
+    "favourite": "Studio favourite",
+    "quantity": "Quantity"
+  },
+  "cart": {
+    "title": "Your cart",
+    "empty": {
+      "title": "Your cart is empty",
+      "body": "Every great table starts with one considered piece.",
+      "cta": "Explore The Collection"
+    },
+    "items": "Items",
+    "remove": "Remove",
+    "qty": "Qty",
+    "subtotal": "Subtotal",
+    "subtotalNote": "Shipping and any installments are arranged at checkout.",
+    "checkout": "Proceed to checkout",
+    "continue": "Continue shopping",
+    "summary": "Order summary"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "intro": "Guest checkout — no account needed.",
+    "yourDetails": "Your details",
+    "fullName": "Full name",
+    "email": "Email",
+    "phone": "Phone",
+    "optional": "optional",
+    "orderSummary": "Order summary",
+    "subtotal": "Subtotal",
+    "payNote": "Pay securely with credit card, Bit, or in installments (תשלומים) on the next screen.",
+    "secureNote": "You'll be redirected to a secure, hosted payment page.",
+    "pay": "Continue to payment",
+    "backToCart": "Back to cart",
+    "installments": "Installments available",
+    "placeholder": {
+      "title": "Payment isn't live yet",
+      "body": "The studio is finishing payment setup. To complete this order now, send it to Sacha on WhatsApp and we'll arrange payment directly — by card, Bit, or installments.",
+      "cta": "Send my order on WhatsApp",
+      "waMessage": "Hi Paperly — I'd like to order from The Collection:"
+    },
+    "processing": "Connecting to secure payment…",
+    "error": "We couldn't reach the payment page. Please try again, or send your order on WhatsApp."
+  },
+  "checkoutResult": {
+    "successTitle": "Thank you — your order is confirmed",
+    "successBody": "We've received your order and will be in touch shortly with proofs and next steps. A confirmation is on its way.",
+    "successCta": "Back to The Collection",
+    "cancelTitle": "Payment cancelled",
+    "cancelBody": "No charge was made. Your cart is still waiting whenever you're ready.",
+    "cancelCta": "Return to cart"
+  },
+  "portfolio": {
+    "eyebrow": "Bespoke Universes",
+    "title": "Complete worlds, built around one feeling",
+    "intro": "Each universe is fully art-directed — a single point of view held across every surface of the evening. No two are alike, and none are for sale by the sheet.",
+    "viewUniverse": "Enter the universe",
+    "sections": {
+      "brief": "The Brief",
+      "direction": "The Direction",
+      "system": "The System",
+      "pieces": "The Pieces",
+      "feeling": "The Feeling",
+      "gallery": "The Universe"
+    },
+    "cta": "Create your own universe",
+    "ctaBody": "Tell me the feeling you're after — I'll design the world around it.",
+    "backToPortfolio": "Back to Portfolio",
+    "waMessage": "Hi Sacha — I saw the {title} universe and I'd love to create my own."
+  },
+  "studio": {
+    "eyebrow": "The Studio",
+    "title": "One eye, holding everything together",
+    "role": "Sacha — Artistic Director",
+    "body": "I'm Sacha, and I founded Paperly to do one thing well: give an event a world of its own. I came to this from interior architecture, where I learned that beauty is never an accident — it's the result of proportion, material, and a single point of view holding everything together. I bring that same discipline to an evening: I start from a feeling, build a complete visual universe around it, and then make every printed piece answer to it. I keep the studio small on purpose, so nothing leaves my hands without intention. You bring the vision, or the beginnings of one. I make it real, and I make it yours.",
+    "pullQuote": "Beauty is never an accident. It's a point of view, held steady.",
+    "cta": "Start your project",
+    "waMessage": "Hi Sacha — I read about the studio and I'd love to talk about my event."
+  },
+  "howItWorks": {
+    "eyebrow": "How It Works",
+    "title": "Two doors. One studio eye.",
+    "intro": "Every Paperly project begins with the same question — what feeling should the evening have? Where you go next depends on how complete a world you want.",
+    "bespoke": {
+      "label": "Bespoke",
+      "title": "A universe of your own",
+      "steps": [
+        "We talk — about the feeling, the evening, the people.",
+        "I design a complete visual universe: palette, materials, typography, motif.",
+        "We produce every piece in-house, art-directed as one system.",
+        "Your evening arrives as a single, coherent world."
+      ],
+      "cta": "Begin your universe"
+    },
+    "collection": {
+      "label": "The Collection",
+      "title": "The studio's eye, ready-made",
+      "steps": [
+        "Browse The Collection — pieces and complete sets.",
+        "Choose your set size and format.",
+        "Personalize with your names and details.",
+        "Order directly — digital download, courier, or studio pickup."
+      ],
+      "cta": "Shop The Collection"
+    },
+    "priceFilter": {
+      "eyebrow": "Which door is mine?",
+      "title": "Let the scale of the evening decide",
+      "body": "The Collection is for something refined but not grandiose — beautiful pieces, ordered directly. A bespoke universe is for an evening that should feel like nowhere else, designed from a single feeling outward. Many clients begin with The Collection and commission a universe later. There's no wrong door.",
+      "cta": "Talk it through with the studio"
+    }
+  },
+  "forPlanners": {
+    "eyebrow": "For Planners",
+    "title": "A studio partner for the events you're proud of",
+    "intro": "Paperly works hand in hand with a small number of planners and venues who care about a coherent visual world as much as we do.",
+    "body": "When you bring a client to Paperly, you bring them one artistic eye across every printed piece — from the first save-the-date to the last place card. We work discreetly behind your relationship, keep timelines tight, and treat your clients as our own.",
+    "provideTitle": "How we work together",
+    "provide": [
+      "One point of contact: Sacha, start to finish.",
+      "A complete visual system, not loose pieces.",
+      "Production in-house, on premium stock.",
+      "Discreet collaboration around your client relationship."
+    ],
+    "contactTitle": "Let's open a conversation",
+    "contactBody": "Tell us about the events you have coming up. We'll find the right way to work together.",
+    "emailCta": "Email the studio",
+    "waCta": "Message on WhatsApp",
+    "waMessage": "Hi Sacha — I'm a planner and I'd like to talk about working together."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Let's begin with a conversation",
+    "body": "The best universes start with a message. Reach the studio directly — I read everything myself.",
+    "whatsappTitle": "WhatsApp",
+    "whatsappBody": "The fastest way to reach the studio.",
+    "whatsappCta": "Message on WhatsApp",
+    "whatsappMessage": "Hi Sacha — I'd love to talk about an event.",
+    "instagramTitle": "Instagram",
+    "instagramBody": "See the work and the worlds we've built.",
+    "instagramCta": "Follow @paper.ly_",
+    "responseNote": "I usually reply within a day. For bespoke universes, the more you can tell me about the feeling you're after, the better."
+  },
+  "instagram": {
+    "title": "From the studio",
+    "cta": "Follow @paper.ly_",
+    "fallback": "See the latest work on Instagram."
+  },
+  "footer": {
+    "blurb": "An artistic-direction studio for unforgettable events. We design the world your evening lives in — the vision, not the paper.",
+    "explore": "Explore",
+    "connect": "Connect",
+    "forPlanners": "For Planners",
+    "rights": "All rights reserved",
+    "madeIn": "Designed & made in Israel",
+    "waMessage": "Hi Paperly — I'd love to talk about an event."
+  },
+  "notFound": {
+    "title": "This page has drifted off",
+    "body": "The page you're looking for isn't here — but the studio is.",
+    "cta": "Back home"
+  },
+  "seo": {
+    "home": {
+      "title": "Paperly — Artistic Direction for Events",
+      "description": "Paperly is an Israeli studio for the artistic direction of unforgettable events. We design complete visual universes — the vision, not the paper."
+    },
+    "collection": {
+      "title": "The Collection — Paperly",
+      "description": "Ready-made pieces designed by Paperly: menus, place cards and complete sets, made in studio on premium stock. Shop directly in ₪."
+    },
+    "portfolio": {
+      "title": "Portfolio — Bespoke Universes by Paperly",
+      "description": "Complete visual universes art-directed by Paperly for premium events. Explore bespoke worlds built around a single feeling."
+    },
+    "studio": {
+      "title": "The Studio — Sacha, Artistic Director",
+      "description": "Meet Sacha, Artistic Director of Paperly. Trained in interior architecture, designing a complete visual universe for every event."
+    },
+    "howItWorks": {
+      "title": "How It Works — Paperly",
+      "description": "Two ways to work with Paperly: bespoke visual universes, or The Collection of ready-made pieces. One studio eye, either way."
+    },
+    "forPlanners": {
+      "title": "For Planners — Paperly",
+      "description": "A discreet studio partner for planners and venues. One artistic eye across every piece, from save-the-date to place card."
+    },
+    "contact": {
+      "title": "Contact — Paperly",
+      "description": "Begin a conversation with the Paperly studio on WhatsApp or Instagram. Artistic direction for unforgettable events in Israel."
+    },
+    "cart": {
+      "title": "Your Cart — Paperly",
+      "description": "Review the pieces in your Paperly cart."
+    },
+    "checkout": {
+      "title": "Checkout — Paperly",
+      "description": "Secure guest checkout for The Collection by Paperly."
+    },
+    "productSuffix": "Paperly",
+    "universeSuffix": "a Paperly universe"
+  }
+}
