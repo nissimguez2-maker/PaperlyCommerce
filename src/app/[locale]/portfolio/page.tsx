@@ -19,7 +19,7 @@ export async function generateMetadata({
     path: '/portfolio',
     title: ts('title'),
     description: ts('description'),
-    ogImage: '/universes/chloe-albert/hero.jpg',
+    ogImage: '/og/chloe-albert-deep-green.jpg',
   });
 }
 

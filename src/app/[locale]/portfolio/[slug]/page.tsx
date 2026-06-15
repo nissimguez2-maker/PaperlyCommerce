@@ -34,7 +34,7 @@ export async function generateMetadata({
     path: `/portfolio/${universe.slug}`,
     title: `${t(universe.title, locale)} — ${ts('universeSuffix')}`,
     description: t(universe.excerpt, locale),
-    ogImage: universe.hero.src,
+    ogImage: `/og/${universe.slug}.jpg`,
     type: 'article',
   });
 }
