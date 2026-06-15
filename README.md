@@ -20,7 +20,7 @@ The site has two clear doors:
 - **next-intl** — English (default, at `/`) and Hebrew (full RTL mirror at `/he`), ILS (₪)
 - **Supabase** — optional catalog + orders backend (the bundled seed is the default source of truth)
 - **Grow / Meshulam** — Israeli hosted checkout (credit cards, **Bit**, **installments/תשלומים**)
-- **Netlify** — hosting (`@netlify/plugin-nextjs`)
+- **Railway** — hosting (Nixpacks; Netlify config also included)
 
 The site is **fully deployable with placeholder env values**. Payments and the
 Supabase backend activate automatically once real keys are added — no code change.
@@ -69,16 +69,40 @@ falls back to a WhatsApp order hand-off instead of redirecting to the gateway.
 
 ---
 
-## Deploying to Netlify
+## Deploying to Railway (recommended)
 
-1. Connect the repo to Netlify. Build settings are read from
-   [`netlify.toml`](./netlify.toml) (`npm run build`, Next.js runtime plugin).
-2. Add the environment variables above in **Site settings → Environment variables**.
-3. Set `NEXT_PUBLIC_SITE_URL` to the live domain.
-4. Point the gateway webhook to `https://<your-domain>/api/webhooks/payment`
-   and set the matching `GROW_WEBHOOK_SECRET`.
+The app runs as a standard Next.js Node server. Railway auto-detects it via
+Nixpacks; [`railway.json`](./railway.json) pins the build/start commands and a
+healthcheck. `next start` binds to `0.0.0.0` and the `PORT` Railway provides, and
+`sharp` is included so `next/image` optimization works on the server.
+
+**From the Railway dashboard (git-connected, CI on every push):**
+1. New Project → **Deploy from GitHub repo** → pick `nissimguez2-maker/paperlycommerce`
+   (branch `claude/determined-davinci-f2g1x6`, or `main` after merge).
+2. Add the environment variables above under **Variables**. At minimum set
+   `NEXT_PUBLIC_SITE_URL` to the Railway domain (e.g. `https://paperly.up.railway.app`).
+3. Railway builds (`npm run build`) and starts (`npm run start`) automatically.
+4. Optional: add a custom domain under **Settings → Networking**, then update
+   `NEXT_PUBLIC_SITE_URL` to match.
+5. Point the gateway webhook to `https://<your-domain>/api/webhooks/payment` and set
+   the matching `GROW_WEBHOOK_SECRET`.
+
+**From the Railway CLI (from this repo):**
+```bash
+npm i -g @railway/cli
+railway login            # or: export RAILWAY_TOKEN=<project-token>
+railway init             # first time only — creates/links the project
+railway up               # builds & deploys
+railway variables --set NEXT_PUBLIC_SITE_URL=https://<your-domain>
+```
 
 The build is green with placeholders, so the first deploy works before any keys exist.
+
+### Deploying to Netlify (alternative)
+
+A [`netlify.toml`](./netlify.toml) is also included. Connect the repo in Netlify
+and set the same environment variables; the official Next.js runtime plugin handles
+SSR, route handlers and image optimization.
 
 ---
 
