@@ -328,6 +328,15 @@ export function getProductBySlug(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug);
 }
 
+/** Canonical product path, nested under its collection for clean breadcrumbs. */
+export function productPath(product: Product): string {
+  return `/collection/${product.collection}/${product.slug}`;
+}
+
+export function getCollection(id: Collection['id']): Collection | undefined {
+  return collections.find((c) => c.id === id);
+}
+
 export function getProductsByCollection(id: Collection['id']): Product[] {
   return products.filter((p) => p.collection === id);
 }
